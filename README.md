@@ -33,9 +33,12 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 **PROGRAM**
 
 // Assign internal register to output
+
 assign q = q_int;
 
+
 always @(posedge clk or posedge reset) begin
+
     if (reset) 
         q_int[0] <= 1'b0; // Reset the first bit to 0
     else 
@@ -43,9 +46,12 @@ always @(posedge clk or posedge reset) begin
 end
 
 // Generate the other flip-flops based on the output of the previous one
+
 genvar i;
+
+
 generate
-    for (i = 1; i < 4; i = i + 1) begin : ripple
+   for (i = 1; i < 4; i = i + 1) begin : ripple
         always @(posedge q_int[i-1] or posedge reset) begin
             if (reset) 
                 q_int[i] <= 1'b0; // Reset the bit to 0
@@ -53,6 +59,7 @@ generate
                 q_int[i] <= ~q_int[i]; // Toggle the bit on clock edge of previous stage
         end
     end
+    
 endgenerate
 
 
