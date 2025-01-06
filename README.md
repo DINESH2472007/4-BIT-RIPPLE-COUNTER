@@ -1,5 +1,3 @@
-![Screenshot 2024-12-25 175134](https://github.com/user-attachments/assets/5655cb2b-6031-4368-92bf-0704201f3d21)# 4-BIT-RIPPLE-COUNTER
-
 **AIM:**
 
 To implement  4 Bit Ripple Counter using verilog and validating their functionality using their functional tables
@@ -24,11 +22,38 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **Procedure**
 
+1. Increment count on each positive edge of the clock
+2. Reset count to zero when it reaches 15
+3. Generate clock signal(clk)
+4. Instantinate functional testing by displaying the count at each clock cycle for 16 cycles
+5. Conduct functional testing by displaying the count at each clock cycle for 16 cycles.
+
 /* write all the steps invloved */
 
 **PROGRAM**
 
-![Screenshot 2024-12-25 175321](https://github.com/user-attachments/assets/cce4d1cc-427b-41e2-81b8-811745ae1038)
+// Assign internal register to output
+assign q = q_int;
+
+always @(posedge clk or posedge reset) begin
+    if (reset) 
+        q_int[0] <= 1'b0; // Reset the first bit to 0
+    else 
+        q_int[0] <= ~q_int[0]; // Toggle the first bit on clock edge
+end
+
+// Generate the other flip-flops based on the output of the previous one
+genvar i;
+generate
+    for (i = 1; i < 4; i = i + 1) begin : ripple
+        always @(posedge q_int[i-1] or posedge reset) begin
+            if (reset) 
+                q_int[i] <= 1'b0; // Reset the bit to 0
+            else 
+                q_int[i] <= ~q_int[i]; // Toggle the bit on clock edge of previous stage
+        end
+    end
+endgenerate
 
 
 /* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
@@ -40,12 +65,15 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
 
-![Screenshot 2024-12-25 175134](https://github.com/user-attachments/assets/a6e10f6c-dda0-4be3-84e3-e9965368ea85)
+![Screenshot 2025-01-06 175916](https://github.com/user-attachments/assets/e15464d9-1ead-4531-ab84-c3baf3cc87c1)
+
 
 
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
 
-![Screenshot 2024-12-25 175307](https://github.com/user-attachments/assets/df44a532-6a49-485d-98c2-6629fe03854e)
+![Screenshot 2025-01-06 175942](https://github.com/user-attachments/assets/f130b5ca-c348-4d05-a384-7f6d653fdc9e)
 
 
-**RESULTS**
+**RESULTS** : 
+
+Thus, the Bit Ripple Counter is designed and its functionality is validated using the truth table and timing diagrams.
