@@ -38,8 +38,7 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 **PROGRAM**
 
 
-![Screenshot 2025-01-06 181930](https://github.com/user-attachments/assets/bc414a24-e485-4a93-a9b0-2566572c743e)
-
+![Screenshot 2025-01-07 091830](https://github.com/user-attachments/assets/6c21d5a7-ee15-4487-9e0a-60e2fa75e3e8)
 
 
 
@@ -51,13 +50,12 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
 
-![Screenshot 2025-01-06 182027](https://github.com/user-attachments/assets/841b9444-f346-4e59-bea1-6db0cddc5506)
-
+![Screenshot 2025-01-07 090545](https://github.com/user-attachments/assets/b5d7d581-150a-4972-9617-2231fb504a18)
 
 
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
 
-![Screenshot 2025-01-06 182118](https://github.com/user-attachments/assets/9783b7b0-348d-4b14-b96c-583abedaa6ba)
+K![Screenshot 2025-01-07 090810](https://github.com/user-attachments/assets/60ce57ef-c743-4a61-baae-a8f165591d8e)
 
 
 **RESULTS** : 
